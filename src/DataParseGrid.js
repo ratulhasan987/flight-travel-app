@@ -6,9 +6,6 @@ const DataParseGrid = ({ flightData, filters }) => {
     window.alert("Row Selected")
   };
 
-
-
-
   //filter condition user input start----------------------------
   const filteredData = useMemo(() => {
     if (!filters) return flightData;
@@ -57,59 +54,7 @@ const DataParseGrid = ({ flightData, filters }) => {
         return originMatch && destinationMatch && dateMatch && selectedAirlinesMatch || selectTravelerMatch;
     });
 }, [flightData, filters]);
-
-
-
-
-
-
-  // const filteredData = useMemo(() => {
-  //   if (!filters) return flightData;
-
-  //   return flightData.filter((flight) => {
-  //     // Implement filtering logic based on the input values
-  //     const originMatch = flight.itineraries[0].segments[0].departure.iataCode === filters.origin;
-  //     const destinationMatch = flight.itineraries[0].segments[1].arrival.iataCode === filters.destination;
-  //     const selectedAirlinesMatch = flight.itineraries[0].segments[0].carrierCode === filters.selectedAirlines;
-  //     // const selectTravelerMatch = flight.itineraries[0].segments[0].seat && flight.itineraries[0].segments[0].seat.includes(filters.selectTraveler);
-
-  //     const selectTravelerMatch = flightData.filter((flight) => {
-  //       if (flight.itineraries && flight.itineraries.length > 0) {
-  //         for (const itinerary of flight.itineraries) {
-  //           if (itinerary.segments && itinerary.segments.length > 0) {
-  //             for (const segment of itinerary.segments) {
-  //               if (segment.seat && segment.seat.includes(filters.selectTraveler)) {
-  //                 return true;
-  //               }
-  //             }
-  //           }
-  //         }
-  //       }
-  //       return false;
-  //     });
-
-  //     let dateMatch = false;
-  //     try {
-  //       const departureDate = new Date(flight.itineraries[0].segments[0].departure.at);
-  //       const filtersDate = new Date(filters.date);
-  //       if (!isNaN(departureDate.getTime()) && !isNaN(filtersDate.getTime())) {
-  //         // Convert both dates to ISO 8601 format for easy comparison
-  //         const formattedDepartureDate = departureDate.toISOString().split('T')[0];
-  //         const formattedFiltersDate = filtersDate.toISOString().split('T')[0];
-
-  //         dateMatch = formattedDepartureDate === formattedFiltersDate;
-  //       } else {
-  //         console.error("Invalid date value.");
-  //       }
-  //     } catch (error) {
-  //       console.error("An error occurred:", error.message);
-  //     }
-
-  //     return originMatch && destinationMatch && dateMatch && selectedAirlinesMatch && selectTravelerMatch;
-  //     // return (originMatch && destinationMatch || dateMatch) || selectTravelerMatch;
-  //   });
-  // }, [flightData, filters]);
-  //filter condition user input End----------------------------
+//filter condition user input End----------------------------
 
   return (
     <div className="overflow-x-auto">
