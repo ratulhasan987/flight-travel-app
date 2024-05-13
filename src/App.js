@@ -348,13 +348,15 @@ function App() {
       {/* for desh End----- */}
 
 
-      {/* Conditionally render the grid based on showGrid state */}
+      {/* showGrid with Parse data conditionally start---- */}
       {showGrid && (
         <div className='grid-container'>
           <h3 className='mb-4'>Data Parsed Successfully</h3>
           <DataParseGrid flightData={flightData.flightOffer} filters={filters} />
         </div>
       )}
+      {/* showGrid with Parse data conditionally end---- */}
+
     </div>
   );
 }
